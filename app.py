@@ -20,17 +20,11 @@ def phase_change_diagram():
     }), 200, {"Content-Type": "application/json"}
 
 def saturated_vapor_volume(pressure):
-    if pressure < 0.05:
-        return 30 + (0.0035 - 30) * (pressure - 0.05) / (10 - 0.05)
-    else:
-        return 0.0035 + (30 - 0.0035) * (pressure - 10) / (0.05 - 10)
+    return 0.0035 + (30 - 0.0035) * (pressure - 10) / (0.05 - 10)
     
 
 def saturated_liquid_volume(pressure):
-    if pressure < 0.05:
-        return 0.00105 + (0.0035 - 0.00105) * (pressure - 0.05) / (10 - 0.05)
-    else:
-        return 0.0035 + (0.00105 - 0.0035) * (pressure - 10) / (0.05 - 10)
+    return 0.0035 + (0.00105 - 0.0035) * (pressure - 10) / (0.05 - 10)
 
 
 if __name__ == '__main__':
