@@ -13,6 +13,8 @@ def phase_change_diagram():
         return jsonify({"error": "Pressure parameter is required"}), 400
     if pressure < 0:
         return jsonify({"error": "Pressure must be a non-negative value"}), 400
+    if pressure > 10:
+        return jsonify({"error": "Engine broken, pressure must be less than or equal to 10"}), 400
 
     return jsonify({
         "specific_volume_liquid": saturated_liquid_volume(pressure),
